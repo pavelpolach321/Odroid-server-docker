@@ -1,0 +1,17 @@
+apiVersion: 1
+datasources:
+- orgId: 1
+  version: 2
+  name: InfluxDB_v2_Flux ($INFLUXDB_V2_DB)
+  type: influxdb
+  access: proxy
+  url: http://$INFLUXDB_DOCKER_CONTAINER_NAME:$INFLUXDB_PORT
+  basicAuth: true
+  isDefault: true
+  jsonData:
+    defaultBucket: $INFLUXDB_BUCKET
+    httpMode: POST
+    organization: $INFLUXDB_ORGANISATION
+    version: Flux
+  secureJsonData:
+    token: $INFLUXDB_TOKEN
